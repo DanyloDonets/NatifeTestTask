@@ -1,6 +1,7 @@
 package donets.danylo.natife.testtask.Adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
@@ -32,7 +33,7 @@ class GifsAdapter(val context: Context, val gifs: MutableList<DataObject>):Recyc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = gifs[position]
-
+        Log.i("url", data.images.ogImage.url)
         Glide.with(context).load(data.images.ogImage.url).into(holder.imageView)
     }
 

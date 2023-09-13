@@ -2,6 +2,7 @@ package donets.danylo.natife.testtask.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import com.appsflyer.AppsFlyerLib
 import com.bumptech.glide.Glide
@@ -18,6 +19,24 @@ class FullScreenView : AppCompatActivity() {
 
         Glide.with(this).load(url).into(imageView)
         AppsFlyerLib.getInstance().logEvent(applicationContext, "FullScreenMode", null)
+
+    }
+
+
+    override fun onBackPressed() {
+        finish()
+            super.onBackPressed()
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
 

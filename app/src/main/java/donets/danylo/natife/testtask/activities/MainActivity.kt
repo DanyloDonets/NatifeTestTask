@@ -4,17 +4,20 @@ package donets.danylo.natife.testtask.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.appsflyer.AppsFlyerLib
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import donets.danylo.natife.testtask.Adapter.GifsAdapter
 import donets.danylo.natife.testtask.Data.DataObject
 import donets.danylo.natife.testtask.Data.DataResult
 import donets.danylo.natife.testtask.DataServices.DataService
-
 import donets.danylo.natife.testtask.R
-import retrofit2.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
@@ -30,10 +33,13 @@ class MainActivity : AppCompatActivity() {
 
         val gifs = mutableListOf<DataObject>()
         val adapter = GifsAdapter(this, gifs)
+        val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+        recyclerView.layoutManager = staggeredGridLayoutManager
+        //recyclerView.setHasFixedSize(true)
 
         recyclerView.adapter = adapter
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+
+
 
         adapter.setOnItemClickListener(object : GifsAdapter.OnItemClickListener{
             override fun onItenClick(position: Int) {
@@ -62,9 +68,45 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<DataResult?>, t: Throwable) {
-                TODO("Not yet implemented")
+                result("Something wrong")
             }
         })
     }
+
+    private fun result(title: String)
+    {
+        val message = "\nBad internet connection. Try retry"
+        AlertDialog.Builder(this)
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton("Retry")
+            { _,_ ->
+                finish();
+                startActivity(getIntent());
+            }
+            .setCancelable(false)
+            .show()
+    }
+
+
+
+
+    override fun onBackPressed() {
+        finish()
+        super.onBackPressed()
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
+
 }
 
