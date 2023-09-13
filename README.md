@@ -1,7 +1,7 @@
 # Donets Danylo test task
-###implemented:
--all points of technical specifications;
--APIs: AppsFlyer(for statistic), OneSignal(for notifs), giphy REST api
--Navigation bar back batton bind
--RecyclerView as Staggered Grid
--coroutines
+### implemented:
+<li> all points of technical specifications </li> 
+<li>  APIs: AppsFlyer(for statistic), OneSignal(for notifs), giphy REST api </li> 
+<li> Navigation bar back batton bind </li> 
+<li> RecyclerView as Staggered Grid </li> 
+<li>  coroutines </li> 
