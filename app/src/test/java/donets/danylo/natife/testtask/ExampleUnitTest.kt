@@ -1,4 +1,4 @@
-package donets.danylo.natifete.testask
+package donets.danylo.natife.testtask
 
 import org.junit.Test
 

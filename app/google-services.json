@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "915788045240",
+    "project_id": "natife-testapp",
+    "storage_bucket": "natife-testapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915788045240:android:c47a272ccbc7c50250cd4d",
+        "android_client_info": {
+          "package_name": "donets.danylo.natife.testtask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJwEg4HT-p9-yXQ7o0muPwS3DzcE-7_vo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
